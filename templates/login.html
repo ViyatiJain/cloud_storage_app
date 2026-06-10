@@ -1,36 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudVault Login</title>
 
     <style>
 
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
         body{
-            font-family:Arial;
+            min-height:100vh;
             display:flex;
             justify-content:center;
             align-items:center;
-            height:100vh;
             background:linear-gradient(
                 135deg,
-                #667eea,
-                #764ba2
+                #4f46e5,
+                #7c3aed,
+                #06b6d4
             );
+            background-size:400% 400%;
+            animation:bgMove 12s ease infinite;
+            padding:20px;
+        }
+
+        @keyframes bgMove{
+            0%{
+                background-position:0% 50%;
+            }
+            50%{
+                background-position:100% 50%;
+            }
+            100%{
+                background-position:0% 50%;
+            }
         }
 
         .card{
-            background:white;
-            padding:40px;
-            border-radius:20px;
+            width:100%;
+            max-width:450px;
             text-align:center;
+
+            background:rgba(255,255,255,0.15);
+            backdrop-filter:blur(15px);
+            -webkit-backdrop-filter:blur(15px);
+
+            border:1px solid rgba(255,255,255,0.2);
+
+            border-radius:25px;
+            padding:45px 35px;
+
+            box-shadow:0 20px 40px rgba(0,0,0,0.2);
         }
 
-        a{
-            text-decoration:none;
-            background:#4285F4;
+        .logo{
+            font-size:70px;
+            margin-bottom:15px;
+        }
+
+        h1{
             color:white;
+            font-size:38px;
+            margin-bottom:10px;
+        }
+
+        .subtitle{
+            color:#f1f1f1;
+            font-size:16px;
+            line-height:1.6;
+            margin-bottom:35px;
+        }
+
+        .feature-box{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:12px;
+            margin-bottom:35px;
+        }
+
+        .feature{
+            background:rgba(255,255,255,0.12);
+            color:white;
+            padding:12px;
+            border-radius:12px;
+            font-size:14px;
+        }
+
+        .login-btn{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap:10px;
+
+            text-decoration:none;
+
+            background:white;
+            color:#333;
+
             padding:15px 25px;
-            border-radius:10px;
+            border-radius:12px;
+
+            font-weight:600;
+            font-size:16px;
+
+            transition:0.3s ease;
+            width:100%;
+        }
+
+        .login-btn:hover{
+            transform:translateY(-3px);
+            box-shadow:0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .google-icon{
+            font-size:20px;
+        }
+
+        .footer{
+            margin-top:25px;
+            color:white;
+            opacity:0.9;
+            font-size:14px;
+        }
+
+        @media(max-width:500px){
+
+            h1{
+                font-size:30px;
+            }
+
+            .feature-box{
+                grid-template-columns:1fr;
+            }
+
         }
 
     </style>
@@ -39,17 +147,52 @@
 
 <body>
 
-<div class="card">
+    <div class="card">
 
-    <h1>Cloud File Storage</h1>
+        <div class="logo">
+            ☁️
+        </div>
 
-    <br>
+        <h1>CloudVault</h1>
 
-    <a href="/login">
-        Login with Google
-    </a>
+        <p class="subtitle">
+            Secure • Fast • Reliable Cloud Storage <br>
+            Powered by AWS S3 & Google Authentication
+        </p>
 
-</div>
+        <div class="feature-box">
+
+            <div class="feature">
+                🔐 Secure Login
+            </div>
+
+            <div class="feature">
+                ☁️ AWS S3 Storage
+            </div>
+
+            <div class="feature">
+                📤 Upload Files
+            </div>
+
+            <div class="feature">
+                🤝 Share Files
+            </div>
+
+        </div>
+
+        <a href="/login" class="login-btn">
+
+            <span class="google-icon">🌐</span>
+
+            Login with Google
+
+        </a>
+
+        <div class="footer">
+            Access your files from anywhere, anytime.
+        </div>
+
+    </div>
 
 </body>
 </html>
